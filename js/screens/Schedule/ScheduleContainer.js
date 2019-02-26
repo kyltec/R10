@@ -1,17 +1,41 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { Query } from "react-apollo";
+import { Text } from "react-native";
+import gql from "graphql-tag";
+import Schedule from "./Schedule";
+import { formatSessionData } from "../../lib/helper/dataFormatHelpers";
 
-export default class Schedule extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+export default class ScheduleContainer extends Component {
+  static navigationOptions = {
+    title: "Schedule",
+    headerTintcolor: "#fff",
+    headerTitleStyle: {
+      fontSize: 20
+    }
+  };
 
   render() {
     return (
-      <View>
-        <Text> Schedule </Text>
-      </View>
+      <Query
+        query={gql`
+          {
+            allSessions {
+              id
+              title
+              startTime
+              location
+            }
+          }
+        `}
+      >
+        {({ loading, error, data }) => {
+          console.log(data);
+          if (loading) {
+            return <Text>loading...</Text>;
+          }
+          return <Schedule data={formatSessionData(data.allSessions)} />;
+        }}
+      </Query>
     );
   }
 }

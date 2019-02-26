@@ -31,9 +31,11 @@ export default class About extends Component {
           renderItem={({ item }) => {
             return (
               <View>
-                <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.description}>{item.description}</Text>
-                <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />
+                <View>
+                  <Text style={styles.title}>{item.title}</Text>
+                  <Text style={styles.description}>{item.description}</Text>
+                  <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />
+                </View>
               </View>
             );
           }}
