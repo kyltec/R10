@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   dropdown: {
-    // marginTop: 20,
     marginLeft: 10,
     marginRight: 10
   },

@@ -15,19 +15,22 @@ export default class SessionsContainer extends Component {
   };
 
   render() {
+    let { navigation } = this.props;
+    let description = navigation.getParam("description");
+    let title = navigation.getParam("title");
+    let location = navigation.getParam("location");
+    let startTime = navigation.getParam("startTime");
+    let speaker = navigation.getParam("speaker");
+
     return (
       <Query
         query={gql`
-          {
-            allSessions {
+          query allSpeakers($id: ID) {
+            allSpeakers(filter: { id: $id }) {
               id
-              title
-              startTime
-              location
-              description
-              speaker {
-                name
-              }
+              bio
+              name
+              image
             }
           }
         `}
@@ -37,7 +40,17 @@ export default class SessionsContainer extends Component {
           if (loading) {
             return <Text>loading...</Text>;
           }
-          return <Sessions data={formatSessionData(data.allSessions)} />;
+          return (
+            <Sessions
+              data={data.allSpeakers}
+              navigation={this.props.navigation}
+              title={title}
+              description={description}
+              location={location}
+              startTime={startTime}
+              speaker={speaker}
+            />
+          );
         }}
       </Query>
     );

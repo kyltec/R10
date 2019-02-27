@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  SectionList,
-  TouchableHighlight,
-  Button
-} from "react-native";
+import { View, Text, SectionList, TouchableHighlight } from "react-native";
 import moment from "moment";
 
 export default class Sessions extends Component {
@@ -15,7 +9,6 @@ export default class Sessions extends Component {
   }
 
   render() {
-    console.log(this.props.data);
     return (
       <View>
         <SectionList
@@ -23,11 +16,22 @@ export default class Sessions extends Component {
           renderItem={({ item }) => {
             return (
               <View>
-                <TouchableHighlight>
-                  <Text>{item.title}</Text>
-                </TouchableHighlight>
-                <TouchableHighlight>
-                  <Text>{item.location}</Text>
+                <TouchableHighlight
+                  onPress={() =>
+                    this.props.navigation.navigate("Sessions", {
+                      title: item.title,
+                      location: item.location,
+                      startTime: item.startTime,
+                      id: item.id,
+                      description: item.description,
+                      speaker: item.speaker
+                    })
+                  }
+                >
+                  <View>
+                    <Text>{item.title}</Text>
+                    <Text>{item.location}</Text>
+                  </View>
                 </TouchableHighlight>
               </View>
             );

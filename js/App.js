@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import client from "../js/config/api";
+import client from "./config/api";
 import { ApolloProvider } from "react-apollo";
-import About from "./screens/About";
 import RootStackNavigator from "./navigation/RootStackNavigator";
+import { FavesProvider } from "./context/";
 
 export default class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <RootStackNavigator />
+        <FavesProvider>
+          <RootStackNavigator />
+        </FavesProvider>
       </ApolloProvider>
     );
   }

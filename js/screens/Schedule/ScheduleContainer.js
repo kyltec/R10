@@ -24,6 +24,13 @@ export default class ScheduleContainer extends Component {
               title
               startTime
               location
+              description
+              speaker {
+                bio
+                id
+                image
+                name
+              }
             }
           }
         `}
@@ -33,7 +40,12 @@ export default class ScheduleContainer extends Component {
           if (loading) {
             return <Text>loading...</Text>;
           }
-          return <Schedule data={formatSessionData(data.allSessions)} />;
+          return (
+            <Schedule
+              data={formatSessionData(data.allSessions)}
+              navigation={this.props.navigation}
+            />
+          );
         }}
       </Query>
     );
