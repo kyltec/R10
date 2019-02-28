@@ -5,8 +5,11 @@ import {
   ScrollView,
   Image,
   TouchableHighlight,
-  Button
+  Button,
+  Platform
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+import moment from "moment";
 
 export default class Sessions extends Component {
   constructor(props) {
@@ -15,12 +18,23 @@ export default class Sessions extends Component {
   }
 
   render() {
+    console.log(this.props.faveIds);
     return (
-      <View>
+      <ScrollView>
         <View>
           <Text>{this.props.location}</Text>
           <Text>{this.props.title}</Text>
-          <Text>{this.props.setTime}</Text>
+          <Text>{moment(this.props.startTime).format("LT")}</Text>
+          <View>
+            <Icon
+              name={Platform.select({
+                ios: "ios-heart",
+                android: "md-heart"
+              })}
+              color="red"
+              size={16}
+            />
+          </View>
           <Text>{this.props.description}</Text>
           <Text>Presented by:</Text>
           <View>
@@ -43,9 +57,33 @@ export default class Sessions extends Component {
                 <Text>{this.props.speaker.name}</Text>
               </View>
             </TouchableHighlight>
+
+            <View>
+              {this.props.faveIds.includes(this.props.id) ? (
+                <Button
+                  onPress={() => {
+                    this.props.deleteFaveId(this.props.id);
+                    console.log(this.props.id);
+                  }}
+                  title="Remove from Favorites"
+                  color="#9963ea"
+                  accessibilityLabel="A purple button for favoriting this session"
+                />
+              ) : (
+                <Button
+                  onPress={() => {
+                    console.log("add");
+                    this.props.setFaveId(this.props.id);
+                  }}
+                  title="Add to Favorites"
+                  color="9963ea"
+                  accessibilityLabel="A purple button for favoriting this session"
+                />
+              )}
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

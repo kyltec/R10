@@ -12,18 +12,23 @@ export default class About extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.generalInfo}>
-          <Image source={require("../../assets/images/r10Logo.png")} />
-          <Text>
-            R10 is a conference that forces on just about any topic related to
-            dev.
-          </Text>
-          <Text style={styles.heading}>Data and Venue</Text>
-          <Text>
-            The R10 conference will take place of Thursday June 27, 2019 in
-            Vancouver, BC.
-          </Text>
-          <Text style={styles.heading}>Code of Conduct</Text>
+        <View style={styles.generalContainer}>
+          <View style={styles.imageContainer}>
+            <Image source={require("../../assets/images/r10Logo.png")} />
+          </View>
+          <View style={styles.bottomBorder} />
+          <View>
+            <Text style={styles.description}>
+              R10 is a conference that forces on just about any topic related to
+              dev.
+            </Text>
+            <Text style={styles.heading}>Data and Venue</Text>
+            <Text style={styles.description}>
+              The R10 conference will take place of Thursday June 27, 2019 in
+              Vancouver, BC.
+            </Text>
+            <Text style={styles.heading}>Code of Conduct</Text>
+          </View>
         </View>
         <FlatList
           style={styles.dropdown}
@@ -32,9 +37,8 @@ export default class About extends Component {
             return (
               <View>
                 <View>
-                  <Text style={styles.title}>{item.title}</Text>
+                  <Text style={styles.menuItem}>{item.title}</Text>
                   <Text style={styles.description}>{item.description}</Text>
-                  <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />
                 </View>
               </View>
             );

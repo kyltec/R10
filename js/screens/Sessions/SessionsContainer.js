@@ -55,6 +55,7 @@ export default class SessionsContainer extends Component {
                     speaker={speaker}
                     setFaveId={setFaveId}
                     deleteFaveId={deleteFaveId}
+                    faveIds={faveIds}
                   />
                 );
               }}
