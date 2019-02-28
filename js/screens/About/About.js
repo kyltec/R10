@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, Image } from "react-native";
+import { View, Text, FlatList, Image, ScrollView } from "react-native";
 
 import styles from "./styles";
 
@@ -11,7 +11,7 @@ export default class About extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.generalInfo}>
           <Image source={require("../../assets/images/r10Logo.png")} />
           <Text>
@@ -43,7 +43,7 @@ export default class About extends Component {
         />
 
         <Text style={styles.licence}>RED Academy </Text>
-      </View>
+      </ScrollView>
     );
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, SectionList, TouchableHighlight } from "react-native";
 import moment from "moment";
 
-export default class Sessions extends Component {
+export default class Schedule extends Component {
   constructor(props) {
     super(props);
     this.state = {};

@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { Text } from "react-native";
+import { Text, ActivityIndicator } from "react-native";
 import gql from "graphql-tag";
 import Schedule from "./Schedule";
 import { formatSessionData } from "../../lib/helper/dataFormatHelpers";
+import FavesContext from "../../context/";
 
 export default class ScheduleContainer extends Component {
   static navigationOptions = {
     title: "Schedule",
     headerTintcolor: "#fff",
     headerTitleStyle: {
-      fontSize: 20
+      fontSize: 20,
+      color: "#fff"
     }
   };
 
@@ -30,21 +32,28 @@ export default class ScheduleContainer extends Component {
                 id
                 image
                 name
+                url
               }
             }
           }
         `}
       >
         {({ loading, error, data }) => {
-          console.log(data);
-          if (loading) {
-            return <Text>loading...</Text>;
-          }
+          if (loading) return <ActivityIndicator />;
+          if (error) return <Text>Error</Text>;
           return (
-            <Schedule
-              data={formatSessionData(data.allSessions)}
-              navigation={this.props.navigation}
-            />
+            <FavesContext.Consumer>
+              {({ faveIds }) => {
+                console.log(faveIds);
+                return (
+                  <Schedule
+                    data={formatSessionData(data.allSessions)}
+                    navigation={this.props.navigation}
+                    faveIds={faveIds}
+                  />
+                );
+              }}
+            </FavesContext.Consumer>
           );
         }}
       </Query>

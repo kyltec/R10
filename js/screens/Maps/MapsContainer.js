@@ -1,16 +1,23 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
-export default class Map extends Component {
+export default class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
+  static navigationOptions = {
+    title: "Maps",
+    headerTintcolor: "#fff",
+    headerTitleStyle: {
+      fontSize: 20,
+      color: "#fff"
+    }
+  };
   render() {
     return (
       <View>
-        <Text> Map </Text>
+        <Text> </Text>
       </View>
     );
   }

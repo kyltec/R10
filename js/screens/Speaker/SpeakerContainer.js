@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import Speaker from "./Speaker";
 
-export default class Speaker extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
+export default class SpeakerContainer extends Component {
   render() {
+    let { navigation } = this.props;
     return (
-      <View>
-        <Text> Speaker </Text>
-      </View>
+      <Speaker
+        navigation={navigation}
+        name={navigation.getParam("name")}
+        bio={navigation.getParam("bio")}
+        url={navigation.getParam("url")}
+        image={navigation.getParam("image")}
+      />
     );
   }
 }

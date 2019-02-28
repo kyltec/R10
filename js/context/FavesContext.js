@@ -43,7 +43,6 @@ class FavesProvider extends Component {
   };
 
   render() {
-    console.log("faves");
     return (
       <FavesContext.Provider
         value={{

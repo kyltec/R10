@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { Text } from "react-native";
+import { ActivityIndicator } from "react-native";
 import gql from "graphql-tag";
 import Sessions from "./Sessions";
-import { formatSessionData } from "../../lib/helper/dataFormatHelpers";
+import FavesContainer from "../../context/";
 
 export default class SessionsContainer extends Component {
   static navigationOptions = {
     title: "Sessions",
     headerTintcolor: "#fff",
     headerTitleStyle: {
-      fontSize: 20
+      fontSize: 20,
+      color: "#fff"
     }
   };
 
@@ -38,18 +39,26 @@ export default class SessionsContainer extends Component {
         {({ loading, error, data }) => {
           console.log(data);
           if (loading) {
-            return <Text>loading...</Text>;
+            return <ActivityIndicator />;
           }
           return (
-            <Sessions
-              data={data.allSpeakers}
-              navigation={this.props.navigation}
-              title={title}
-              description={description}
-              location={location}
-              startTime={startTime}
-              speaker={speaker}
-            />
+            <FavesContainer.Consumer>
+              {({ faveIds, setFaveId, deleteFaveId }) => {
+                return (
+                  <Sessions
+                    data={data.allSpeakers}
+                    navigation={this.props.navigation}
+                    title={title}
+                    description={description}
+                    location={location}
+                    startTime={startTime}
+                    speaker={speaker}
+                    setFaveId={setFaveId}
+                    deleteFaveId={deleteFaveId}
+                  />
+                );
+              }}
+            </FavesContainer.Consumer>
           );
         }}
       </Query>

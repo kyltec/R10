@@ -4,9 +4,9 @@ import {
   Text,
   ScrollView,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  Button
 } from "react-native";
-import moment from "moment";
 
 export default class Sessions extends Component {
   constructor(props) {
@@ -15,7 +15,6 @@ export default class Sessions extends Component {
   }
 
   render() {
-    console.log(this.props.speaker.name);
     return (
       <View>
         <View>
@@ -28,7 +27,11 @@ export default class Sessions extends Component {
             <TouchableHighlight
               onPress={() => {
                 this.props.navigation.navigate("Speaker", {
-                  name: this.props.speaker.name
+                  name: this.props.speaker.name,
+                  bio: this.props.speaker.bio,
+                  url: this.props.speaker.url,
+                  image: this.props.speaker.image,
+                  id: this.props.speaker.id
                 });
               }}
             >

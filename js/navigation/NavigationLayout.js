@@ -63,10 +63,10 @@ const ScheduleStack = createStackNavigator(
 
 export default createBottomTabNavigator(
   {
-    About: AboutStack,
-    Fave: FaveStack,
+    Schedule: ScheduleStack,
     Map: MapsStack,
-    Schedule: ScheduleStack
+    Fave: FaveStack,
+    About: AboutStack
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
