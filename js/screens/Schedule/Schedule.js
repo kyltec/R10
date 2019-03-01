@@ -23,8 +23,8 @@ export default class Schedule extends Component {
         <SectionList
           sections={this.props.data}
           renderItem={({ item }) => {
-            console.log(item.id);
-            // console.log(this.props.faveIds);
+            // console.log(item.id);
+            console.log(this.props.faveIds);
             return (
               <View>
                 <TouchableHighlight
@@ -45,17 +45,16 @@ export default class Schedule extends Component {
                       <Text>{item.location}</Text>
                     </View>
                     <View>
-                      {this.props.faveIds.includes(this.props.id) ? (
-                        <Text>hi</Text>
+                      {this.props.faveIds.includes(item.id) ? (
+                        <Icon
+                          name={Platform.select({
+                            ios: "ios-heart",
+                            android: "md-heart"
+                          })}
+                          color="red"
+                          size={16}
+                        />
                       ) : (
-                        // <Icon
-                        //   name={Platform.select({
-                        //     ios: "ios-heart",
-                        //     android: "md-heart"
-                        //   })}
-                        //   color="red"
-                        //   size={16}
-                        // />
                         <Text />
                       )}
                     </View>
