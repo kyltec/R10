@@ -18,24 +18,28 @@ export default class Sessions extends Component {
   }
 
   render() {
-    console.log(this.props.faveIds);
+    console.log(this.props.item);
     return (
       <ScrollView>
         <View>
-          <Text>{this.props.location}</Text>
-          <Text>{this.props.title}</Text>
-          <Text>{moment(this.props.startTime).format("LT")}</Text>
+          <Text>{this.props.item.location}</Text>
+          <Text>{this.props.item.title}</Text>
+          <Text>{moment(this.props.item.startTime).format("LT")}</Text>
           <View>
-            <Icon
-              name={Platform.select({
-                ios: "ios-heart",
-                android: "md-heart"
-              })}
-              color="red"
-              size={16}
-            />
+            {this.props.faveIds.includes(this.props.item.id) ? (
+              <Icon
+                name={Platform.select({
+                  ios: "ios-heart",
+                  android: "md-heart"
+                })}
+                color="red"
+                size={16}
+              />
+            ) : (
+              <Text />
+            )}
           </View>
-          <Text>{this.props.description}</Text>
+          <Text>{this.props.item.description}</Text>
           <Text>Presented by:</Text>
           <View>
             <TouchableHighlight
@@ -51,19 +55,19 @@ export default class Sessions extends Component {
             >
               <View>
                 <Image
-                  source={{ uri: this.props.speaker.image }}
+                  source={{ uri: this.props.item.speaker.image }}
                   style={{ width: 30, height: 30 }}
                 />
-                <Text>{this.props.speaker.name}</Text>
+                <Text>{this.props.item.speaker.name}</Text>
               </View>
             </TouchableHighlight>
 
             <View>
-              {this.props.faveIds.includes(this.props.id) ? (
+              {this.props.faveIds.includes(this.props.item.id) ? (
                 <Button
                   onPress={() => {
-                    this.props.deleteFaveId(this.props.id);
-                    console.log(this.props.id);
+                    console.log("delete");
+                    this.props.deleteFaveId(this.props.item.id);
                   }}
                   title="Remove from Favorites"
                   color="#9963ea"
@@ -73,10 +77,10 @@ export default class Sessions extends Component {
                 <Button
                   onPress={() => {
                     console.log("add");
-                    this.props.setFaveId(this.props.id);
+                    this.props.setFaveId(this.props.item.id);
                   }}
                   title="Add to Favorites"
-                  color="9963ea"
+                  color="#9963ea"
                   accessibilityLabel="A purple button for favoriting this session"
                 />
               )}

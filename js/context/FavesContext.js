@@ -15,8 +15,9 @@ class FavesProvider extends Component {
   getFavesIds = async () => {
     try {
       const allFaves = await getFaves();
+      console.log(allFaves);
       const faveIds = allFaves.map(fave => {
-        fave[0];
+        if (fave[0] !== "uuid") return fave[0];
       });
       this.setState({ faveIds });
     } catch (e) {
@@ -26,8 +27,9 @@ class FavesProvider extends Component {
 
   setFaveId = async faveId => {
     try {
+      console.log(faveId);
       await setFave(faveId);
-      this.getFavesIds;
+      this.getFavesIds();
     } catch (e) {
       console.log(e);
     }
@@ -36,7 +38,7 @@ class FavesProvider extends Component {
   deleteFaveId = async faveId => {
     try {
       await deleteFave(faveId);
-      this.getFavesIds;
+      this.getFavesIds();
     } catch (e) {
       console.log(e);
     }

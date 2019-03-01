@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, Text } from "react-native";
 import gql from "graphql-tag";
 import Sessions from "./Sessions";
 import FavesContainer from "../../context/";
@@ -17,21 +17,19 @@ export default class SessionsContainer extends Component {
 
   render() {
     let { navigation } = this.props;
-    let description = navigation.getParam("description");
-    let title = navigation.getParam("title");
-    let location = navigation.getParam("location");
-    let startTime = navigation.getParam("startTime");
-    let speaker = navigation.getParam("speaker");
+    let itemId = navigation.getParam("id");
+    let item = navigation.getParam("item");
 
     return (
       <Query
+        variables={{ id: itemId }}
         query={gql`
           query allSpeakers($id: ID) {
             allSpeakers(filter: { id: $id }) {
               id
               bio
-              name
               image
+              name
             }
           }
         `}
@@ -41,18 +39,18 @@ export default class SessionsContainer extends Component {
           if (loading) {
             return <ActivityIndicator />;
           }
+          if (error) {
+            return <Text>Error</Text>;
+          }
           return (
             <FavesContainer.Consumer>
               {({ faveIds, setFaveId, deleteFaveId }) => {
                 return (
                   <Sessions
                     data={data.allSpeakers}
+                    itemId={itemId}
+                    item={item}
                     navigation={this.props.navigation}
-                    title={title}
-                    description={description}
-                    location={location}
-                    startTime={startTime}
-                    speaker={speaker}
                     setFaveId={setFaveId}
                     deleteFaveId={deleteFaveId}
                     faveIds={faveIds}

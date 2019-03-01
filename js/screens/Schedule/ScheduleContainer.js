@@ -43,7 +43,7 @@ export default class ScheduleContainer extends Component {
           if (error) return <Text>Error</Text>;
           return (
             <FavesContext.Consumer>
-              {({ faveIds, setFaveId, deleteFaveId }) => {
+              {({ faveIds }) => {
                 console.log(faveIds);
                 return (
                   <Schedule

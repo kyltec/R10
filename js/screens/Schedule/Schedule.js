@@ -18,12 +18,13 @@ export default class Schedule extends Component {
   }
 
   render() {
-    console.log(this.props.faveIds);
     return (
       <View>
         <SectionList
           sections={this.props.data}
           renderItem={({ item }) => {
+            console.log(item.id);
+            // console.log(this.props.faveIds);
             return (
               <View>
                 <TouchableHighlight
@@ -32,12 +33,8 @@ export default class Schedule extends Component {
                       this.props.navigation.navigate("", {});
                     } else {
                       this.props.navigation.navigate("Sessions", {
-                        title: item.title,
-                        location: item.location,
-                        startTime: item.startTime,
                         id: item.id,
-                        description: item.description,
-                        speaker: item.speaker
+                        item: item
                       });
                     }
                   }}
@@ -49,16 +46,17 @@ export default class Schedule extends Component {
                     </View>
                     <View>
                       {this.props.faveIds.includes(this.props.id) ? (
-                        <Icon
-                          name={Platform.select({
-                            ios: "ios-heart",
-                            android: "md-heart"
-                          })}
-                          color="red"
-                          size={16}
-                        />
+                        <Text>hi</Text>
                       ) : (
-                        ""
+                        // <Icon
+                        //   name={Platform.select({
+                        //     ios: "ios-heart",
+                        //     android: "md-heart"
+                        //   })}
+                        //   color="red"
+                        //   size={16}
+                        // />
+                        <Text />
                       )}
                     </View>
                   </View>
