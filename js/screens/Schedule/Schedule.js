@@ -23,8 +23,6 @@ export default class Schedule extends Component {
         <SectionList
           sections={this.props.data}
           renderItem={({ item }) => {
-            // console.log(item.id);
-            console.log(this.props.faveIds);
             return (
               <View>
                 <TouchableHighlight
@@ -41,8 +39,8 @@ export default class Schedule extends Component {
                 >
                   <View style={styles.itemContainer}>
                     <View>
-                      <Text>{item.title}</Text>
-                      <Text>{item.location}</Text>
+                      <Text style={styles.title}>{item.title}</Text>
+                      <Text style={styles.location}>{item.location}</Text>
                     </View>
                     <View>
                       {this.props.faveIds.includes(item.id) ? (
@@ -60,13 +58,12 @@ export default class Schedule extends Component {
                     </View>
                   </View>
                 </TouchableHighlight>
+                <View style={styles.bottomBorder} />
               </View>
             );
           }}
           renderSectionHeader={({ section: { title } }) => (
-            <Text style={{ backgroundColor: "#000", color: "#fff" }}>
-              {moment(title).format("LT")}
-            </Text>
+            <Text style={styles.timeStamp}>{moment(title).format("LT")}</Text>
           )}
           keyExtractor={item => item.id + ""}
         />

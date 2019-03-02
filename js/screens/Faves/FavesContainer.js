@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { Text } from "react-native";
-import FavesContext from "../../context/";
+import { Query } from "react-apollo";
+import { Text, ActivityIndicator } from "react-native";
+import gql from "graphql-tag";
 import Faves from "./Faves";
+import { formatSessionData } from "../../lib/helper/dataFormatHelpers";
+import FavesContext from "../../context/";
 
 export default class FavesContainer extends Component {
   constructor(props) {
@@ -53,6 +56,7 @@ export default class FavesContainer extends Component {
                   <Faves
                     data={formatSessionData(filterSession)}
                     faveIds={faveIds}
+                    navigation={this.props.navigation}
                   />
                 );
               }}

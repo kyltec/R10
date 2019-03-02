@@ -1,7 +1,17 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import {
+  View,
+  Text,
+  SectionList,
+  TouchableHighlight,
+  Platform
+} from "react-native";
+import moment from "moment";
+import Icon from "react-native-vector-icons/Ionicons";
 
-export default class Faves extends Component {
+import styles from "./styles";
+
+export default class Schedule extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -10,7 +20,53 @@ export default class Faves extends Component {
   render() {
     return (
       <View>
-        <Text> Faves </Text>
+        <SectionList
+          sections={this.props.data}
+          renderItem={({ item }) => {
+            return (
+              <View>
+                <TouchableHighlight
+                  onPress={() => {
+                    if (!item.speaker) {
+                      this.props.navigation.navigate("", {});
+                    } else {
+                      this.props.navigation.navigate("Sessions", {
+                        id: item.id,
+                        item: item
+                      });
+                    }
+                  }}
+                >
+                  <View style={styles.itemContainer}>
+                    <View>
+                      <Text style={styles.title}>{item.title}</Text>
+                      <Text style={styles.location}>{item.location}</Text>
+                    </View>
+                    <View>
+                      {this.props.faveIds.includes(item.id) ? (
+                        <Icon
+                          name={Platform.select({
+                            ios: "ios-heart",
+                            android: "md-heart"
+                          })}
+                          color="red"
+                          size={16}
+                        />
+                      ) : (
+                        <Text />
+                      )}
+                    </View>
+                  </View>
+                </TouchableHighlight>
+                <View style={styles.bottomBorder} />
+              </View>
+            );
+          }}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.timeStamp}>{moment(title).format("LT")}</Text>
+          )}
+          keyExtractor={item => item.id + ""}
+        />
       </View>
     );
   }

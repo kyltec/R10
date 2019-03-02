@@ -18,7 +18,7 @@ export default class Sessions extends Component {
   }
 
   render() {
-    console.log(this.props.item);
+    console.log(this.props.data);
     return (
       <ScrollView>
         <View>
@@ -45,11 +45,11 @@ export default class Sessions extends Component {
             <TouchableHighlight
               onPress={() => {
                 this.props.navigation.navigate("Speaker", {
-                  name: this.props.speaker.name,
-                  bio: this.props.speaker.bio,
-                  url: this.props.speaker.url,
-                  image: this.props.speaker.image,
-                  id: this.props.speaker.id
+                  name: this.props.item.speakername,
+                  bio: this.props.item.speaker.bio,
+                  url: this.props.item.speaker.url,
+                  image: this.props.item.speaker.image,
+                  id: this.props.item.speaker.id
                 });
               }}
             >

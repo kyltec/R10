@@ -23,30 +23,40 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   genteralInfo: {
-    marginTop: 20
+    marginBottom: 20
+  },
+  heading: {
+    fontSize: 20,
+    fontFamily: font.sub,
+    fontWeight: "bold"
   },
   dropdown: {
     marginLeft: 10,
     marginRight: 10
   },
   menuItem: {
-    fontSize: 15,
-    fontWeight: "bold",
-    color: "#9963ea",
-    marginTop: 20,
-    marginBottom: 20
+    marginTop: 10,
+    marginBottom: 10
   },
+
   description: {
-    fontSize: 17,
+    fontSize: 15,
     fontFamily: font.main,
     marginTop: 20,
     marginBottom: 20
+  },
+  toggleItem: {
+    fontSize: 15,
+    fontFamily: font.main,
+    fontWeight: "bold",
+    color: "#9963ea"
   },
   licence: {
     marginTop: 30,
     fontSize: 20,
     marginLeft: 10,
-    marginBottom: 30
+    marginBottom: 30,
+    fontFamily: font.main
   }
 });
 

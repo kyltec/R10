@@ -44,7 +44,6 @@ export default class ScheduleContainer extends Component {
           return (
             <FavesContext.Consumer>
               {({ faveIds }) => {
-                console.log(faveIds);
                 return (
                   <Schedule
                     data={formatSessionData(data.allSessions)}

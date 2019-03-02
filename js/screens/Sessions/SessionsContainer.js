@@ -24,12 +24,13 @@ export default class SessionsContainer extends Component {
       <Query
         variables={{ id: itemId }}
         query={gql`
-          query allSpeakers($id: ID) {
+          query allSessions($id: ID) {
             allSpeakers(filter: { id: $id }) {
               id
               bio
               image
               name
+              url
             }
           }
         `}
@@ -47,7 +48,7 @@ export default class SessionsContainer extends Component {
               {({ faveIds, setFaveId, deleteFaveId }) => {
                 return (
                   <Sessions
-                    data={data.allSpeakers}
+                    data={data.allSpeakers[0]}
                     itemId={itemId}
                     item={item}
                     navigation={this.props.navigation}

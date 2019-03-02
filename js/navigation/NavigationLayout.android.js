@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  createStackNavigator,
-  createBottomTabNavigator,
-  createDrawerNavigator
-} from "react-navigation";
+import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import AboutScreen from "../screens/About";
@@ -13,6 +9,8 @@ import ScheduleScreen from "../screens/Schedule";
 import SessionsScreen from "../screens/Sessions";
 
 import { sharedNavigationOptions } from "./config";
+
+import { colours, font } from "../config/styles";
 
 const AboutStack = createStackNavigator(
   {
@@ -86,12 +84,12 @@ export default createDrawerNavigator(
         return <Ionicons name={iconName} size={25} color={tintColor} />;
       }
     }),
-    tabBarOptions: {
-      activeTintColor: "#fff",
-      inactiveTintColor: "#999999",
+    contentOptions: {
+      activeTintColor: colours.purple,
+      inactiveTintColor: colours.mediumGrey,
       labelStyle: {
         fontSize: 10,
-        fontFamily: "Montserrat"
+        fontFamily: font.sub
       },
       style: {
         backgroundColor: "#000"
