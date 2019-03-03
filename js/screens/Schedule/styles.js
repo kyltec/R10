@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingTop: 10,
     paddingBottom: 10,
-    flex: 1
+    flex: 1,
+    paddingLeft: 20
   },
 
   bottomBorder: {
@@ -29,11 +30,16 @@ const styles = StyleSheet.create({
     fontFamily: font.sub,
     fontSize: 17,
     color: "#000",
-    marginBottom: 10
+    marginBottom: 10,
+    marginLeft: 20
   },
   location: {
     color: colours.mediumGrey,
-    fontFamily: font.main
+    fontFamily: font.main,
+    marginLeft: 20
+  },
+  heart: {
+    paddingRight: 20
   }
 });
 

@@ -36,7 +36,7 @@ export default class Speaker extends Component {
         <Text>{this.props.bio}</Text>
         <View>
           <Button
-            // onPress={() => Linking.openURL(`${this.props.url}`)}
+            onPress={() => Linking.openURL(`${this.props.url}`)}
             title="Learn More on Wikipedia"
             color="#841584"
             accessibilityLabel="Learn more about this speaker on Wikipedia"

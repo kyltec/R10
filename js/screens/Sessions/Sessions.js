@@ -4,12 +4,16 @@ import {
   Text,
   ScrollView,
   Image,
-  TouchableHighlight,
+  TouchableOpacity,
   Button,
-  Platform
+  Platform,
+  StyleSheet
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import moment from "moment";
+import LinearGradient from "react-native-linear-gradient";
+
+import styles from "./styles";
 
 export default class Sessions extends Component {
   constructor(props) {
@@ -18,31 +22,35 @@ export default class Sessions extends Component {
   }
 
   render() {
-    console.log(this.props.data);
     return (
-      <ScrollView>
+      <ScrollView style={styles.container}>
         <View>
-          <Text>{this.props.item.location}</Text>
-          <Text>{this.props.item.title}</Text>
-          <Text>{moment(this.props.item.startTime).format("LT")}</Text>
           <View>
-            {this.props.faveIds.includes(this.props.item.id) ? (
-              <Icon
-                name={Platform.select({
-                  ios: "ios-heart",
-                  android: "md-heart"
-                })}
-                color="red"
-                size={16}
-              />
-            ) : (
-              <Text />
-            )}
+            <Text style={styles.location}>{this.props.item.location}</Text>
+            <View>
+              {this.props.faveIds.includes(this.props.item.id) ? (
+                <Icon
+                  name={Platform.select({
+                    ios: "ios-heart",
+                    android: "md-heart"
+                  })}
+                  color="red"
+                  size={20}
+                />
+              ) : (
+                <Text />
+              )}
+            </View>
           </View>
-          <Text>{this.props.item.description}</Text>
-          <Text>Presented by:</Text>
+          <Text style={styles.title}>{this.props.item.title}</Text>
+          <Text style={styles.timeStamp}>
+            {moment(this.props.item.startTime).format("LT")}
+          </Text>
+
+          <Text style={styles.description}>{this.props.item.description}</Text>
+          <Text style={styles.subHeading}>Presented by:</Text>
           <View>
-            <TouchableHighlight
+            <TouchableOpacity
               onPress={() => {
                 this.props.navigation.navigate("Speaker", {
                   name: this.props.item.speakername,
@@ -56,13 +64,26 @@ export default class Sessions extends Component {
               <View>
                 <Image
                   source={{ uri: this.props.item.speaker.image }}
-                  style={{ width: 30, height: 30 }}
+                  style={styles.speakerImage}
                 />
-                <Text>{this.props.item.speaker.name}</Text>
+                <Text style={styles.speaker}>
+                  {this.props.item.speaker.name}
+                </Text>
               </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
 
-            <View>
+            <View style={styles.bottomBorder} />
+
+            <View style={{ marginTop: 20 }}>
+              <LinearGradient
+                colors={["#cf392a", "#9963ea"]}
+                start={{ x: 0.0, y: 1.0 }}
+                end={{ x: 1.0, y: 0.0 }}
+                style={[
+                  StyleSheet.absoluteFill,
+                  { height: 100, width: "100%" }
+                ]}
+              />
               {this.props.faveIds.includes(this.props.item.id) ? (
                 <Button
                   onPress={() => {
@@ -70,7 +91,7 @@ export default class Sessions extends Component {
                     this.props.deleteFaveId(this.props.item.id);
                   }}
                   title="Remove from Favorites"
-                  color="#9963ea"
+                  color="#fff"
                   accessibilityLabel="A purple button for favoriting this session"
                 />
               ) : (
@@ -80,7 +101,7 @@ export default class Sessions extends Component {
                     this.props.setFaveId(this.props.item.id);
                   }}
                   title="Add to Favorites"
-                  color="#9963ea"
+                  color="#fff"
                   accessibilityLabel="A purple button for favoriting this session"
                 />
               )}

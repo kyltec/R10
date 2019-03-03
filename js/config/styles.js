@@ -17,7 +17,3 @@ export const androidMenuIcon = {
   marginLeft: 20,
   color: "#fff"
 };
-
-export const spaceFromLeft = {
-  marginLeft: 20
-};

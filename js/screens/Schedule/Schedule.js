@@ -3,8 +3,8 @@ import {
   View,
   Text,
   SectionList,
-  TouchableHighlight,
-  Platform
+  Platform,
+  TouchableOpacity
 } from "react-native";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -25,7 +25,7 @@ export default class Schedule extends Component {
           renderItem={({ item }) => {
             return (
               <View>
-                <TouchableHighlight
+                <TouchableOpacity
                   onPress={() => {
                     if (!item.speaker) {
                       this.props.navigation.navigate("", {});
@@ -42,7 +42,7 @@ export default class Schedule extends Component {
                       <Text style={styles.title}>{item.title}</Text>
                       <Text style={styles.location}>{item.location}</Text>
                     </View>
-                    <View>
+                    <View style={styles.heart}>
                       {this.props.faveIds.includes(item.id) ? (
                         <Icon
                           name={Platform.select({
@@ -57,7 +57,7 @@ export default class Schedule extends Component {
                       )}
                     </View>
                   </View>
-                </TouchableHighlight>
+                </TouchableOpacity>
                 <View style={styles.bottomBorder} />
               </View>
             );

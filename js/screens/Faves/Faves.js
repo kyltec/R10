@@ -3,7 +3,7 @@ import {
   View,
   Text,
   SectionList,
-  TouchableHighlight,
+  TouchableOpacity,
   Platform
 } from "react-native";
 import moment from "moment";
@@ -25,7 +25,7 @@ export default class Schedule extends Component {
           renderItem={({ item }) => {
             return (
               <View>
-                <TouchableHighlight
+                <TouchableOpacity
                   onPress={() => {
                     if (!item.speaker) {
                       this.props.navigation.navigate("", {});
@@ -45,6 +45,7 @@ export default class Schedule extends Component {
                     <View>
                       {this.props.faveIds.includes(item.id) ? (
                         <Icon
+                          style={styles.heart}
                           name={Platform.select({
                             ios: "ios-heart",
                             android: "md-heart"
@@ -57,7 +58,7 @@ export default class Schedule extends Component {
                       )}
                     </View>
                   </View>
-                </TouchableHighlight>
+                </TouchableOpacity>
                 <View style={styles.bottomBorder} />
               </View>
             );

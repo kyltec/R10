@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Query } from "react-apollo";
-import { ActivityIndicator, Text } from "react-native";
-import gql from "graphql-tag";
+
 import Speaker from "./Speaker";
-import Session from "../Sessions";
 
 export default class SessionsContainer extends Component {
   static navigationOptions = {
