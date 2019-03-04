@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, FlatList, Image, ScrollView } from "react-native";
 import PropTypes from "prop-types";
-import CollapsibleCodeOfConduct from "../../components/";
+import CollapsibleCodeOfConduct from "../../components/CollapsibleCodeOfConduct";
 
 import styles from "./styles";
 

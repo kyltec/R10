@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { View, Text } from "react-native";
 
 export default class MapContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   static navigationOptions = {
     title: "Maps",
     headerTintColor: "#fff",
@@ -17,7 +13,7 @@ export default class MapContainer extends Component {
   render() {
     return (
       <View>
-        <Text> </Text>
+        <Text>Insert Map Here</Text>
       </View>
     );
   }

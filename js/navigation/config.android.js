@@ -27,15 +27,24 @@ export const sharedNavigationOptions = navigation => ({
   headerBackTitle: null,
   header: props => <GradientHeader {...props} />,
 
-  headerLeft: props => (
-    <Icon
-      name={"md-menu"}
-      size={30}
-      color={"white"}
-      style={AndroidMenu}
-      onPress={() => navigation.toggleDrawer()}
-    />
-  ),
+  headerLeft: props => {
+    navigation.navigate({ routeName: "Sessions" }) ? (
+      <Icon
+        name="md-arrow-back"
+        color="white"
+        style={AndroidMenu}
+        onPress={() => navigation.goBack()}
+      />
+    ) : (
+      <Icon
+        name={"md-menu"}
+        size={30}
+        color={"white"}
+        style={AndroidMenu}
+        onPress={() => navigation.toggleDrawer()}
+      />
+    );
+  },
 
   headerStyle: {
     backgroundColor: "transparent"

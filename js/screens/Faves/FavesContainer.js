@@ -46,7 +46,7 @@ export default class FavesContainer extends Component {
           if (error) return <Text>Error</Text>;
           return (
             <FavesContext.Consumer>
-              {({ faveIds, setFaveId, deleteFaveId }) => {
+              {({ faveIds }) => {
                 let filterSession = data.allSessions.filter(session => {
                   return faveIds.includes(session.id);
                 });
