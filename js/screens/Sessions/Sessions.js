@@ -14,7 +14,7 @@ import moment from "moment";
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "./styles";
-import { colours } from "../../config/styles";
+import { Colours } from "../../config/styles";
 
 export default class Sessions extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ export default class Sessions extends Component {
                     ios: "ios-heart",
                     android: "md-heart"
                   })}
-                  color={colours.red}
+                  color={Colours.red}
                   size={20}
                 />
               ) : (
@@ -78,38 +78,39 @@ export default class Sessions extends Component {
             <View style={styles.button}>
               {this.props.faveIds.includes(this.props.item.id) ? (
                 <View>
-                  <LinearGradient
-                    colors={["#cf392a", "#9963ea"]}
-                    start={{ x: 0.0, y: 1.0 }}
-                    end={{ x: 1.0, y: 0.0 }}
-                    style={[StyleSheet.absoluteFill, styles.buttonLabel]}
-                  />
-                  <Button
-                    style={styles.buttonInfo}
+                  <TouchableOpacity
                     onPress={() => {
                       this.props.deleteFaveId(this.props.item.id);
                     }}
-                    title="Remove from Favorites"
-                    color="#fff"
-                    accessibilityLabel="A purple button for favoriting this session"
-                  />
+                  >
+                    <LinearGradient
+                      colors={["#9963ea", "#8797D6"]}
+                      start={{ x: 0.0, y: 1.0 }}
+                      end={{ x: 1.0, y: 0.0 }}
+                      style={[StyleSheet.absoluteFill, styles.buttonLabel]}
+                    >
+                      <Text style={styles.buttonInfoRemove}>
+                        Remove from Favorites
+                      </Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
                 </View>
               ) : (
                 <View>
-                  <LinearGradient
-                    colors={["#cf392a", "#9963ea"]}
-                    start={{ x: 0.0, y: 1.0 }}
-                    end={{ x: 1.0, y: 0.0 }}
-                    style={[StyleSheet.absoluteFill, styles.buttonLabel]}
-                  />
-                  <Button
+                  <TouchableOpacity
                     onPress={() => {
                       this.props.setFaveId(this.props.item.id);
                     }}
-                    title="Add to Favorites"
-                    color="#fff"
-                    accessibilityLabel="A purple button for favoriting this session"
-                  />
+                  >
+                    <LinearGradient
+                      colors={["#9963ea", "#8797D6"]}
+                      start={{ x: 0.0, y: 1.0 }}
+                      end={{ x: 1.0, y: 0.0 }}
+                      style={[StyleSheet.absoluteFill, styles.buttonLabel]}
+                    >
+                      <Text style={styles.buttonInfoAdd}>Add to Favorites</Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
                 </View>
               )}
             </View>

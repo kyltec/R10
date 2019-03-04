@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { font, colours } from "../../config/styles";
+import { Font, Colours } from "../../config/styles";
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -11,9 +11,9 @@ const styles = StyleSheet.create({
   },
 
   timeStamp: {
-    backgroundColor: colours.lightGrey,
+    backgroundColor: Colours.lightGrey,
     color: "#000",
-    fontFamily: font.sub,
+    fontFamily: Font.sub,
     fontWeight: "bold",
     paddingTop: 10,
     paddingBottom: 10,
@@ -23,19 +23,19 @@ const styles = StyleSheet.create({
 
   bottomBorder: {
     borderBottomWidth: 0.5,
-    color: colours.lightGrey
+    color: Colours.lightGrey
   },
 
   title: {
-    fontFamily: font.sub,
+    fontFamily: Font.sub,
     fontSize: 17,
     color: "#000",
     marginBottom: 10,
     marginLeft: 20
   },
   location: {
-    color: colours.mediumGrey,
-    fontFamily: font.main,
+    color: Colours.mediumGrey,
+    fontFamily: Font.main,
     marginLeft: 20
   },
   heart: {

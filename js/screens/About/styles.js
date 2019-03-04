@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colours, font } from "../../config/styles";
+import { Colours, Font } from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   bottomBorder: {
     borderBottomWidth: 0.5,
-    color: colours.lightGrey
+    color: Colours.lightGrey
   },
   generalContainer: {
     marginLeft: 10,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 20,
-    fontFamily: font.sub,
+    fontFamily: Font.sub,
     fontWeight: "bold"
   },
   dropdown: {
@@ -41,13 +41,13 @@ const styles = StyleSheet.create({
 
   description: {
     fontSize: 15,
-    fontFamily: font.main,
+    fontFamily: Font.main,
     marginTop: 20,
     marginBottom: 20
   },
   toggleItem: {
     fontSize: 15,
-    fontFamily: font.main,
+    fontFamily: Font.main,
     fontWeight: "bold",
     color: "#9963ea"
   },
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 10,
     marginBottom: 30,
-    fontFamily: font.main
+    fontFamily: Font.main
   }
 });
 

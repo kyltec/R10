@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { font, colours } from "../../config/styles";
+import { Font, Colours } from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,31 +12,31 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   location: {
-    fontFamily: font.main,
+    fontFamily: Font.main,
     fontSize: 17,
-    color: colours.mediumGrey
+    color: Colours.mediumGrey
   },
   title: {
-    fontFamily: font.sub,
+    fontFamily: Font.sub,
     fontSize: 30,
     marginBottom: 20
   },
   timeStamp: {
-    color: colours.red,
+    color: Colours.red,
     marginBottom: 20,
-    fontFamily: font.sub,
+    fontFamily: Font.sub,
     fontSize: 17
   },
   description: {
-    fontFamily: font.main,
+    fontFamily: Font.main,
     fontSize: 20,
     marginBottom: 20,
     lineHeight: 30
   },
   subHeading: {
-    fontFamily: font.sub,
+    fontFamily: Font.sub,
     fontSize: 15,
-    color: colours.mediumGrey,
+    color: Colours.mediumGrey,
     marginBottom: 20
   },
   speakerImage: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     borderRadius: 30
   },
   speaker: {
-    fontFamily: font.sub,
+    fontFamily: Font.sub,
     fontSize: 20,
     marginLeft: 20
   },
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   bottomBorder: {
     borderBottomWidth: 1,
-    color: colours.lightGrey
+    color: Colours.lightGrey
   },
   button: {
     marginTop: 20
@@ -65,13 +65,21 @@ const styles = StyleSheet.create({
   buttonLabel: {
     height: 50,
     width: "100%",
-    paddingLeft: 70,
-    paddingRight: 70,
     borderRadius: 35
   },
-  buttonInfo: {
-    fontFamily: font.sub,
-    fontSize: 15
+  buttonInfoRemove: {
+    fontFamily: Font.sub,
+    fontSize: 17,
+    color: "#fff",
+    paddingTop: 15,
+    paddingLeft: "20%"
+  },
+  buttonInfoAdd: {
+    fontFamily: Font.sub,
+    fontSize: 17,
+    color: "#fff",
+    paddingTop: 15,
+    paddingLeft: "30%"
   }
 });
 

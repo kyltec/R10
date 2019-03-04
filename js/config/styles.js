@@ -1,6 +1,6 @@
 import { StyleSheet, Platform } from "react-native";
 
-export const colours = {
+export const Colours = {
   mediumGrey: "#999999",
   lightGrey: "#e6e6e6",
   blue: "#8797D6",
@@ -8,12 +8,14 @@ export const colours = {
   red: "#cf392a"
 };
 
-export const font = {
+export const Font = {
   main: "Montserrat-Light",
   sub: "Montserrat-Regular"
 };
 
-export const androidMenuIcon = {
-  marginLeft: 20,
-  color: "#fff"
+export const Button = {
+  height: 40,
+  justifyContent: "center",
+  margin: 15,
+  borderRadius: 25
 };

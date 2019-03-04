@@ -1,9 +1,8 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Header } from "react-navigation";
 import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
-import { androidMenuIcon } from "../config/styles";
 
 const GradientHeader = props => (
   <View
@@ -18,12 +17,6 @@ const GradientHeader = props => (
       end={{ x: 1.0, y: 0.0 }}
       style={[StyleSheet.absoluteFill, { height: 100, width: "100%" }]}
     />
-    <Icon
-      name="md-menu"
-      size={30}
-      style={androidMenuIcon}
-      onPress={() => props.navigation.toggleDrawer}
-    />
 
     <Header {...props} />
   </View>
@@ -32,7 +25,14 @@ const GradientHeader = props => (
 export const sharedNavigationOptions = navigation => ({
   headerBackTitle: null,
   header: props => <GradientHeader {...props} />,
-
+  headerLeft: props => (
+    <Icon
+      name="md-menu"
+      size={30}
+      color="white"
+      onPress={() => navigation.toggleDrawer}
+    />
+  ),
   headerStyle: {
     backgroundColor: "transparent"
   }

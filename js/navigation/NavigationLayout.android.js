@@ -10,7 +10,7 @@ import SessionsScreen from "../screens/Sessions";
 
 import { sharedNavigationOptions } from "./config";
 
-import { colours, font } from "../config/styles";
+import { Colours, Font } from "../config/styles";
 
 const AboutStack = createStackNavigator(
   {
@@ -85,11 +85,11 @@ export default createDrawerNavigator(
       }
     }),
     contentOptions: {
-      activeTintColor: colours.purple,
-      inactiveTintColor: colours.mediumGrey,
+      activeTintColor: Colours.purple,
+      inactiveTintColor: Colours.mediumGrey,
       labelStyle: {
         fontSize: 10,
-        fontFamily: font.sub
+        fontFamily: Font.sub
       },
       style: {
         backgroundColor: "#000"
