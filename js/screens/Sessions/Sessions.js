@@ -14,6 +14,7 @@ import moment from "moment";
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "./styles";
+import { colours } from "../../config/styles";
 
 export default class Sessions extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class Sessions extends Component {
     return (
       <ScrollView style={styles.container}>
         <View>
-          <View>
+          <View style={styles.flexContainer}>
             <Text style={styles.location}>{this.props.item.location}</Text>
             <View>
               {this.props.faveIds.includes(this.props.item.id) ? (
@@ -34,7 +35,7 @@ export default class Sessions extends Component {
                     ios: "ios-heart",
                     android: "md-heart"
                   })}
-                  color="red"
+                  color={colours.red}
                   size={20}
                 />
               ) : (
@@ -53,7 +54,7 @@ export default class Sessions extends Component {
             <TouchableOpacity
               onPress={() => {
                 this.props.navigation.navigate("Speaker", {
-                  name: this.props.item.speakername,
+                  name: this.props.item.speaker.name,
                   bio: this.props.item.speaker.bio,
                   url: this.props.item.speaker.url,
                   image: this.props.item.speaker.image,
@@ -61,7 +62,7 @@ export default class Sessions extends Component {
                 });
               }}
             >
-              <View>
+              <View style={styles.speakerContainer}>
                 <Image
                   source={{ uri: this.props.item.speaker.image }}
                   style={styles.speakerImage}
@@ -74,36 +75,42 @@ export default class Sessions extends Component {
 
             <View style={styles.bottomBorder} />
 
-            <View style={{ marginTop: 20 }}>
-              <LinearGradient
-                colors={["#cf392a", "#9963ea"]}
-                start={{ x: 0.0, y: 1.0 }}
-                end={{ x: 1.0, y: 0.0 }}
-                style={[
-                  StyleSheet.absoluteFill,
-                  { height: 100, width: "100%" }
-                ]}
-              />
+            <View style={styles.button}>
               {this.props.faveIds.includes(this.props.item.id) ? (
-                <Button
-                  onPress={() => {
-                    console.log("delete");
-                    this.props.deleteFaveId(this.props.item.id);
-                  }}
-                  title="Remove from Favorites"
-                  color="#fff"
-                  accessibilityLabel="A purple button for favoriting this session"
-                />
+                <View>
+                  <LinearGradient
+                    colors={["#cf392a", "#9963ea"]}
+                    start={{ x: 0.0, y: 1.0 }}
+                    end={{ x: 1.0, y: 0.0 }}
+                    style={[StyleSheet.absoluteFill, styles.buttonLabel]}
+                  />
+                  <Button
+                    style={styles.buttonInfo}
+                    onPress={() => {
+                      this.props.deleteFaveId(this.props.item.id);
+                    }}
+                    title="Remove from Favorites"
+                    color="#fff"
+                    accessibilityLabel="A purple button for favoriting this session"
+                  />
+                </View>
               ) : (
-                <Button
-                  onPress={() => {
-                    console.log("add");
-                    this.props.setFaveId(this.props.item.id);
-                  }}
-                  title="Add to Favorites"
-                  color="#fff"
-                  accessibilityLabel="A purple button for favoriting this session"
-                />
+                <View>
+                  <LinearGradient
+                    colors={["#cf392a", "#9963ea"]}
+                    start={{ x: 0.0, y: 1.0 }}
+                    end={{ x: 1.0, y: 0.0 }}
+                    style={[StyleSheet.absoluteFill, styles.buttonLabel]}
+                  />
+                  <Button
+                    onPress={() => {
+                      this.props.setFaveId(this.props.item.id);
+                    }}
+                    title="Add to Favorites"
+                    color="#fff"
+                    accessibilityLabel="A purple button for favoriting this session"
+                  />
+                </View>
               )}
             </View>
           </View>

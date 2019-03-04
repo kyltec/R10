@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  ScrollView,
   View,
   Text,
   Image,
@@ -8,6 +7,8 @@ import {
   Linking,
   TouchableHighlight
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+import styles from "./styles";
 
 export default class Speaker extends Component {
   constructor(props) {
@@ -16,23 +17,25 @@ export default class Speaker extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
-      <ScrollView style={{ marginTop: 50 }}>
-        <View>
+      <View style={styles.container}>
+        <View style={styles.flex}>
           <TouchableHighlight
             onPress={() => {
               this.props.navigation.goBack();
             }}
           >
-            <Text>X</Text>
+            <Icon name="ios-close" color="#000" size={30} />
           </TouchableHighlight>
+          <Text>About The Speaker</Text>
         </View>
-        <Image
-          source={{ uri: this.props.image }}
-          style={{ width: 40, height: 40 }}
-        />
-        <Text>{this.props.name}</Text>
+        <View>
+          <Image
+            source={{ uri: this.props.image }}
+            style={{ width: 40, height: 40 }}
+          />
+          <Text>{this.props.name}</Text>
+        </View>
         <Text>{this.props.bio}</Text>
         <View>
           <Button
@@ -42,7 +45,7 @@ export default class Speaker extends Component {
             accessibilityLabel="Learn more about this speaker on Wikipedia"
           />
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }

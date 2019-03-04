@@ -3,15 +3,6 @@ import React, { Component } from "react";
 import Speaker from "./Speaker";
 
 export default class SessionsContainer extends Component {
-  static navigationOptions = {
-    title: "Sessions",
-    headerTintcolor: "#fff",
-    headerTitleStyle: {
-      fontSize: 20,
-      color: "#fff"
-    }
-  };
-
   render() {
     let { navigation } = this.props;
 
