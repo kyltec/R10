@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20
   },
+
   buttonLabel: {
     height: 50,
     width: "100%",
@@ -80,6 +81,18 @@ const styles = StyleSheet.create({
     color: "#fff",
     paddingTop: 15,
     paddingLeft: "30%"
+  },
+
+  // --------- Android
+
+  buttonLabelAndroid: {
+    height: 50,
+    borderRadius: 25,
+    width: "100%"
+  },
+  buttonAndroid: {
+    height: 50,
+    marginTop: 20
   }
 });
 

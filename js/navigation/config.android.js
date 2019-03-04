@@ -26,13 +26,14 @@ const GradientHeader = props => (
 export const sharedNavigationOptions = navigation => ({
   headerBackTitle: null,
   header: props => <GradientHeader {...props} />,
+
   headerLeft: props => (
     <Icon
-      name="md-menu"
+      name={"md-menu"}
       size={30}
-      color="white"
-      onPress={() => navigation.toggleDrawer()}
+      color={"white"}
       style={AndroidMenu}
+      onPress={() => navigation.toggleDrawer()}
     />
   ),
   headerStyle: {

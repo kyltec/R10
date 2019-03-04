@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { Font, Colours } from "../../config/styles";
+import { Font } from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
   buttonLabel: {
     height: 50,
     width: "100%",
-    borderRadius: 35
+    borderRadius: 35,
+    marginBottom: 40
   },
 
   buttonInfo: {
@@ -79,6 +80,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingLeft: 30,
     paddingTop: 10
+  },
+
+  // ------------- Android
+
+  speakerTitleAndroid: {
+    color: "#fff",
+    fontFamily: Font.sub,
+    fontSize: 20,
+    paddingRight: 80
+  },
+
+  buttonInfoAndroid: {
+    color: "#fff",
+    fontFamily: Font.sub,
+    fontSize: 20,
+    alignItems: "center",
+    paddingLeft: 50,
+    paddingTop: 13
   }
 });
 
