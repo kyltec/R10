@@ -36,6 +36,7 @@ export const sharedNavigationOptions = navigation => ({
       onPress={() => navigation.toggleDrawer()}
     />
   ),
+
   headerStyle: {
     backgroundColor: "transparent"
   }
