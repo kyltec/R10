@@ -13,9 +13,6 @@ export const Font = {
   sub: "Montserrat-Regular"
 };
 
-export const Button = {
-  height: 40,
-  justifyContent: "center",
-  margin: 15,
-  borderRadius: 25
+export const AndroidMenu = {
+  marginLeft: 20
 };

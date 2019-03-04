@@ -13,7 +13,7 @@ export default class FavesContainer extends Component {
   }
   static navigationOptions = {
     title: "Faves",
-    headerTintcolor: "#fff",
+    headerTintColor: "#fff",
     headerTitleStyle: {
       fontSize: 20,
       color: "#fff"
@@ -47,9 +47,7 @@ export default class FavesContainer extends Component {
           return (
             <FavesContext.Consumer>
               {({ faveIds, setFaveId, deleteFaveId }) => {
-                console.log(faveIds);
                 let filterSession = data.allSessions.filter(session => {
-                  console.log("++++", session);
                   return faveIds.includes(session.id);
                 });
                 return (

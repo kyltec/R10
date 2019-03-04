@@ -9,7 +9,7 @@ import FavesContext from "../../context/";
 export default class ScheduleContainer extends Component {
   static navigationOptions = {
     title: "Schedule",
-    headerTintcolor: "#fff",
+    headerTintColor: "#fff",
     headerTitleStyle: {
       fontSize: 20,
       color: "#fff"

@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import About from "./About";
+import { ActivityIndicator } from "react-native";
 
 export default class AboutContainer extends Component {
   static navigationOptions = {
     title: "About",
-    headerTintcolor: "#fff",
+    headerTintColor: "#fff",
     headerTitleStyle: {
       fontSize: 20,
       color: "#fff"
@@ -27,8 +28,13 @@ export default class AboutContainer extends Component {
         `}
       >
         {({ loading, error, data }) => {
-          console.log(data);
-
+          if (loading) {
+            <ActivityIndicator size="large" />;
+          }
+          if (error) {
+            <Text>{`${error.message}`}</Text>;
+            console.log(error);
+          }
           return <About data={data} />;
         }}
       </Query>

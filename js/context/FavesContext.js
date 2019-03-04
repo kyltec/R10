@@ -15,7 +15,6 @@ class FavesProvider extends Component {
   getFavesIds = async () => {
     try {
       const allFaves = await getFaves();
-      console.log(allFaves);
       const faveIds = allFaves.map(fave => {
         if (fave[0] !== "uuid") return fave[0];
       });
@@ -27,7 +26,6 @@ class FavesProvider extends Component {
 
   setFaveId = async faveId => {
     try {
-      console.log(faveId);
       await setFave(faveId);
       this.getFavesIds();
     } catch (e) {

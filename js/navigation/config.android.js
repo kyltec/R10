@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Header } from "react-navigation";
 import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
+import { AndroidMenu } from "../config/styles";
 
 const GradientHeader = props => (
   <View
@@ -30,7 +31,8 @@ export const sharedNavigationOptions = navigation => ({
       name="md-menu"
       size={30}
       color="white"
-      onPress={() => navigation.toggleDrawer}
+      onPress={() => navigation.toggleDrawer()}
+      style={AndroidMenu}
     />
   ),
   headerStyle: {

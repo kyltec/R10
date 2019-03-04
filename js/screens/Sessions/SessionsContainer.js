@@ -8,7 +8,7 @@ import FavesContainer from "../../context/";
 export default class SessionsContainer extends Component {
   static navigationOptions = {
     title: "Sessions",
-    headerTintcolor: "#fff",
+    headerTintColor: "#fff",
     headerTitleStyle: {
       fontSize: 20,
       color: "#fff"
@@ -36,7 +36,6 @@ export default class SessionsContainer extends Component {
         `}
       >
         {({ loading, error, data }) => {
-          console.log(data);
           if (loading) {
             return <ActivityIndicator />;
           }

@@ -11,6 +11,7 @@ import {
   Platform,
   UIManager
 } from "react-native";
+import PropTypes from "prop-types";
 
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -125,7 +126,7 @@ export default class About extends Component {
               </Text>
               <Text style={styles.heading}>Data and Venue</Text>
               <Text style={styles.description}>
-                The R10 conference will take place of Tuesday June 27, 2017 in
+                The R10 conference will take place of Thursday June 27, 2019 in
                 Vancouver, BC.
               </Text>
               <Text style={styles.heading}>Code of Conduct</Text>
@@ -142,9 +143,15 @@ export default class About extends Component {
         />
         <View style={styles.generalContainer}>
           <View style={styles.bottomBorder} />
-          <Text style={styles.licence}>RED Academy 2017 </Text>
+          <Text style={styles.licence}>
+            &copy; Kyle Tecson, RED Academy 2019{" "}
+          </Text>
         </View>
       </ScrollView>
     );
   }
 }
+
+About.propTypes = {
+  data: PropTypes.object.isRequired
+};

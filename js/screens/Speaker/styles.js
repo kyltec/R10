@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    marginBottom: 20
+    marginBottom: 40
   },
 
   buttonLabel: {

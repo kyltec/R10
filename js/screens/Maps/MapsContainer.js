@@ -8,7 +8,7 @@ export default class MapContainer extends Component {
   }
   static navigationOptions = {
     title: "Maps",
-    headerTintcolor: "#fff",
+    headerTintColor: "#fff",
     headerTitleStyle: {
       fontSize: 20,
       color: "#fff"
