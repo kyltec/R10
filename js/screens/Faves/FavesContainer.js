@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 import Faves from "./Faves";
 import { formatSessionData } from "../../lib/helper/dataFormatHelpers";
 import FavesContext from "../../context/";
+import PropTypes from "prop-types";
 
 export default class FavesContainer extends Component {
   static navigationOptions = {
@@ -61,3 +62,7 @@ export default class FavesContainer extends Component {
     );
   }
 }
+
+FavesContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};

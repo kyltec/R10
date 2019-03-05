@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 import Schedule from "./Schedule";
 import { formatSessionData } from "../../lib/helper/dataFormatHelpers";
 import FavesContext from "../../context/";
+import PropTypes from "prop-types";
 
 export default class ScheduleContainer extends Component {
   static navigationOptions = {
@@ -70,3 +71,7 @@ export default class ScheduleContainer extends Component {
     );
   }
 }
+
+ScheduleContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};

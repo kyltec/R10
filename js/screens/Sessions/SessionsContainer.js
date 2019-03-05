@@ -4,6 +4,7 @@ import { ActivityIndicator, Text, View } from "react-native";
 import gql from "graphql-tag";
 import Sessions from "./Sessions";
 import FavesContainer from "../../context/";
+import PropTypes from "prop-types";
 
 export default class SessionsContainer extends Component {
   static navigationOptions = {
@@ -74,3 +75,7 @@ export default class SessionsContainer extends Component {
     );
   }
 }
+
+SessionsContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
