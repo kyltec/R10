@@ -29,11 +29,17 @@ export const sharedNavigationOptions = navigation => ({
 
   headerLeft: () => (
     <Icon
-      name={"md-menu"}
-      color="white"
+      name={
+        navigation.state.routeName === "Sessions" ? "md-arrow-back" : "md-menu"
+      }
+      color={"white"}
       size={30}
       style={AndroidMenu}
-      onPress={() => navigation.toggleDrawer()}
+      onPress={() => {
+        navigation.state.routeName === "Sessions"
+          ? navigation.goBack()
+          : navigation.toggleDrawer();
+      }}
     />
   ),
 
