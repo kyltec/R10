@@ -11,17 +11,17 @@ import Icon from "react-native-vector-icons/Ionicons";
 import PropTypes from "prop-types";
 import styles from "./styles";
 
-const Faves = ({ data, navigation, faveIds }) => {
-  console.log(data);
+const Faves = ({ sessions = [], navigation }) => {
+  console.log(sessions.faveIds);
   return (
     <View>
-      {data === [] ? (
+      {sessions.length <= 0 ? (
         <View style={styles.placeholderContain}>
           <Text style={styles.placeholder}>No Favourites Added</Text>
         </View>
       ) : (
         <SectionList
-          sections={data}
+          sections={sessions}
           renderItem={({ item }) => {
             return (
               <View>
@@ -43,7 +43,7 @@ const Faves = ({ data, navigation, faveIds }) => {
                       <Text style={styles.location}>{item.location}</Text>
                     </View>
                     <View>
-                      {faveIds.includes(item.id) ? (
+                      {sessions ? (
                         <Icon
                           style={styles.heart}
                           name={Platform.select({
@@ -74,8 +74,7 @@ const Faves = ({ data, navigation, faveIds }) => {
 };
 
 Faves.propTypes = {
-  data: PropTypes.array.isRequired,
-  faveIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sessions: PropTypes.array.isRequired,
   navigation: PropTypes.object.isRequired
 };
 

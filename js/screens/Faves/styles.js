@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 
   placeholderContain: {
-    flex: 1,
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     height: "100%"
@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
 
   placeholder: {
     fontFamily: Font.main,
-    fontSize: 15
+    fontSize: 15,
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   timeStamp: {

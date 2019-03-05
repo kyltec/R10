@@ -60,7 +60,7 @@ export default class FavesContainer extends Component {
                 });
                 return (
                   <Faves
-                    data={formatSessionData(filterSession)}
+                    sessions={formatSessionData(filterSession)}
                     faveIds={faveIds}
                     navigation={this.props.navigation}
                   />
