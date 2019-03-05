@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { Font, Colours } from "../../config/styles";
 
 const styles = StyleSheet.create({
@@ -55,11 +55,14 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     alignItems: "center"
   },
+
   bottomBorder: {
     borderBottomWidth: 1,
     color: Colours.lightGrey
   },
+
   button: {
+    height: 50,
     marginTop: 20
   },
 
@@ -76,13 +79,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     paddingTop: 15,
     paddingLeft: "30%"
-  },
-
-  // --------- Android
-
-  buttonAndroid: {
-    height: 50,
-    marginTop: 20
   }
 });
 

@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 import { Font } from "../../config/styles";
 
 const styles = StyleSheet.create({
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontFamily: Font.sub,
     fontSize: 20,
-    paddingRight: 60
+    paddingRight: Platform.OS === "ios" ? 60 : 80
   },
 
   heading: {
@@ -78,26 +78,8 @@ const styles = StyleSheet.create({
     fontFamily: Font.sub,
     fontSize: 20,
     alignItems: "center",
-    paddingLeft: 30,
-    paddingTop: 10
-  },
-
-  // ------------- Android
-
-  speakerTitleAndroid: {
-    color: "#fff",
-    fontFamily: Font.sub,
-    fontSize: 20,
-    paddingRight: 80
-  },
-
-  buttonInfoAndroid: {
-    color: "#fff",
-    fontFamily: Font.sub,
-    fontSize: 20,
-    alignItems: "center",
-    paddingLeft: 50,
-    paddingTop: 13
+    paddingLeft: Platform.OS === "ios" ? 30 : 50,
+    paddingTop: Platform.OS === "ios" ? 10 : 13
   }
 });
 

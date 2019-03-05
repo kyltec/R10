@@ -4,7 +4,7 @@ import { Font, Colours } from "../../config/styles";
 const styles = StyleSheet.create({
   itemContainer: {
     flex: 1,
-    height: 100,
+    height: 80,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between"
