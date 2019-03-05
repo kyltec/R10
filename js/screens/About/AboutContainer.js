@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import About from "./About";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 
 export default class AboutContainer extends Component {
   static navigationOptions = {
@@ -29,9 +29,19 @@ export default class AboutContainer extends Component {
         `}
       >
         {({ loading, error, data }) => {
-          if (loading) {
-            <ActivityIndicator size="large" />;
-          }
+          if (loading)
+            return (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                <ActivityIndicator size="large" />
+              </View>
+            );
+
           if (error) {
             <Text>{`${error.message}`}</Text>;
           }

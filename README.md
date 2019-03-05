@@ -1,6 +1,6 @@
 # R10
 
-R10 is an app used for planning out your schedule app where you can favorite session you would like to see along with viewing its location on google maps.
+R10 is a schedule app where you can favorite session you would like to see along with viewing its location on google maps.
 
 ## Screenshots
 
@@ -17,12 +17,17 @@ Have an iPnone and/or an Android Simulator (ie. Xcode, Android Studio) installed
 
 #### iOS
 
-- react-native run-ios
+```bash
+  react-native run-ios
+```
 
 #### Android
 
 - open android simulator
-- react-native run-android
+
+```bash
+react-native run-android
+```
 
 ## Technologies Used
 

@@ -5,8 +5,7 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  Platform,
-  StyleSheet
+  Platform
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import moment from "moment";

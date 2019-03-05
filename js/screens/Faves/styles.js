@@ -10,6 +10,18 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
 
+  placeholderContain: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%"
+  },
+
+  placeholder: {
+    fontFamily: Font.main,
+    fontSize: 15
+  },
+
   timeStamp: {
     backgroundColor: Colours.lightGrey,
     color: "#000",

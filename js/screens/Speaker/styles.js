@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 
   speakerContainer: {
     flexDirection: "row",
-    paddingTop: 50,
+    paddingTop: Platform.OS === "ios" ? 50 : 20,
     justifyContent: "space-between",
     alignItems: "center"
   },
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
   contentContainer: {
     backgroundColor: "#fff",
     borderRadius: 15,
-    paddingLeft: 10,
-    paddingRight: 10
+    paddingLeft: 15,
+    paddingRight: 15
   },
 
   speakerName: {

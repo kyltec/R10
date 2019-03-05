@@ -39,7 +39,18 @@ export default class FavesContainer extends Component {
         `}
       >
         {({ loading, error, data }) => {
-          if (loading) return <ActivityIndicator />;
+          if (loading)
+            return (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                <ActivityIndicator size="large" />
+              </View>
+            );
           if (error) return <Text>Error</Text>;
           return (
             <FavesContext.Consumer>

@@ -12,56 +12,63 @@ import PropTypes from "prop-types";
 import styles from "./styles";
 
 const Faves = ({ data, navigation, faveIds }) => {
+  console.log(data);
   return (
     <View>
-      <SectionList
-        sections={data}
-        renderItem={({ item }) => {
-          return (
-            <View>
-              <TouchableOpacity
-                onPress={() => {
-                  if (!item.speaker) {
-                    navigation.navigate("", {});
-                  } else {
-                    navigation.navigate("Sessions", {
-                      id: item.id,
-                      item: item
-                    });
-                  }
-                }}
-              >
-                <View style={styles.itemContainer}>
-                  <View>
-                    <Text style={styles.title}>{item.title}</Text>
-                    <Text style={styles.location}>{item.location}</Text>
+      {data === [] ? (
+        <View style={styles.placeholderContain}>
+          <Text style={styles.placeholder}>No Favourites Added</Text>
+        </View>
+      ) : (
+        <SectionList
+          sections={data}
+          renderItem={({ item }) => {
+            return (
+              <View>
+                <TouchableOpacity
+                  onPress={() => {
+                    if (!item.speaker) {
+                      navigation.navigate("", {});
+                    } else {
+                      navigation.navigate("Sessions", {
+                        id: item.id,
+                        item: item
+                      });
+                    }
+                  }}
+                >
+                  <View style={styles.itemContainer}>
+                    <View>
+                      <Text style={styles.title}>{item.title}</Text>
+                      <Text style={styles.location}>{item.location}</Text>
+                    </View>
+                    <View>
+                      {faveIds.includes(item.id) ? (
+                        <Icon
+                          style={styles.heart}
+                          name={Platform.select({
+                            ios: "ios-heart",
+                            android: "md-heart"
+                          })}
+                          color="red"
+                          size={16}
+                        />
+                      ) : (
+                        <Text />
+                      )}
+                    </View>
                   </View>
-                  <View>
-                    {faveIds.includes(item.id) ? (
-                      <Icon
-                        style={styles.heart}
-                        name={Platform.select({
-                          ios: "ios-heart",
-                          android: "md-heart"
-                        })}
-                        color="red"
-                        size={16}
-                      />
-                    ) : (
-                      <Text />
-                    )}
-                  </View>
-                </View>
-              </TouchableOpacity>
-              <View style={styles.bottomBorder} />
-            </View>
-          );
-        }}
-        renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.timeStamp}>{moment(title).format("LT")}</Text>
-        )}
-        keyExtractor={item => item.id + ""}
-      />
+                </TouchableOpacity>
+                <View style={styles.bottomBorder} />
+              </View>
+            );
+          }}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.timeStamp}>{moment(title).format("LT")}</Text>
+          )}
+          keyExtractor={item => item.id + ""}
+        />
+      )}
     </View>
   );
 };
