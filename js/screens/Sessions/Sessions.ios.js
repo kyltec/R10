@@ -5,11 +5,12 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  Platform
+  Platform,
+  StyleSheet
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import moment from "moment";
-import LinearGradient from "../../components";
+import GradientButton from "../../components/GradientButton";
 import PropTypes from "prop-types";
 
 import styles from "./styles";
@@ -74,7 +75,7 @@ const Sessions = ({ item, faveIds, navigation, deleteFaveId, setFaveId }) => {
                     deleteFaveId(item.id);
                   }}
                 >
-                  <LinearGradient style={styles} />
+                  <GradientButton />
                   <Text style={styles.buttonInfoRemove}>
                     Remove from Favorites
                   </Text>
@@ -87,7 +88,7 @@ const Sessions = ({ item, faveIds, navigation, deleteFaveId, setFaveId }) => {
                     setFaveId(item.id);
                   }}
                 >
-                  <LinearGradient style={styles} />
+                  <GradientButton />
                   <Text style={styles.buttonInfoAdd}>Add to Favorites</Text>
                 </TouchableOpacity>
               </View>

@@ -63,11 +63,6 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
 
-  buttonLabel: {
-    height: 50,
-    width: "100%",
-    borderRadius: 35
-  },
   buttonInfoRemove: {
     fontFamily: Font.sub,
     fontSize: 17,
@@ -85,11 +80,6 @@ const styles = StyleSheet.create({
 
   // --------- Android
 
-  buttonLabelAndroid: {
-    height: 50,
-    borderRadius: 25,
-    width: "100%"
-  },
   buttonAndroid: {
     height: 50,
     marginTop: 20

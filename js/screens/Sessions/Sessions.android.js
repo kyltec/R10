@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import moment from "moment";
-import LinearGradient from "react-native-linear-gradient";
+import GradientButton from "../../components/GradientButton";
 import PropTypes from "prop-types";
 
 import styles from "./styles";
@@ -75,12 +75,7 @@ const Sessions = ({ item, faveIds, navigation, deleteFaveId, setFaveId }) => {
                 }}
               >
                 <View>
-                  <LinearGradient
-                    colors={["#9963ea", "#8797D6"]}
-                    start={{ x: 0.0, y: 1.0 }}
-                    end={{ x: 1.0, y: 0.0 }}
-                    style={[StyleSheet.absoluteFill, styles.buttonLabelAndroid]}
-                  />
+                  <GradientButton />
                   <Text style={styles.buttonInfoRemove}>
                     Remove from Favorites
                   </Text>
@@ -93,12 +88,7 @@ const Sessions = ({ item, faveIds, navigation, deleteFaveId, setFaveId }) => {
                 }}
               >
                 <View>
-                  <LinearGradient
-                    colors={["#9963ea", "#8797D6"]}
-                    start={{ x: 0.0, y: 1.0 }}
-                    end={{ x: 1.0, y: 0.0 }}
-                    style={[StyleSheet.absoluteFill, styles.buttonLabel]}
-                  />
+                  <GradientButton />
                   <Text style={styles.buttonInfoAdd}>Add to Favorites</Text>
                 </View>
               </TouchableOpacity>

@@ -16,3 +16,9 @@ export const Font = {
 export const AndroidMenu = {
   marginLeft: 20
 };
+
+export const gradientButton = {
+  height: 50,
+  width: "100%",
+  borderRadius: 25
+};

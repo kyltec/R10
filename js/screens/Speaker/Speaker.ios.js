@@ -10,7 +10,7 @@ import {
   Platform,
   TouchableOpacity
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import GradientButton from "../../components/GradientButton";
 import Icon from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 import PropTypes from "prop-types";
@@ -39,12 +39,7 @@ const Speaker = ({ navigation, name, bio, image, url }) => {
         <Text style={styles.speakerBio}>{bio}</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={() => Linking.openURL(`${url}`)}>
-            <LinearGradient
-              colors={["#9963ea", "#8797D6"]}
-              start={{ x: 0.0, y: 1.0 }}
-              end={{ x: 1.0, y: 0.0 }}
-              style={[StyleSheet.absoluteFill, styles.buttonLabel]}
-            />
+            <GradientButton />
             <Text style={styles.buttonInfo}>Read More on Wikipedia</Text>
           </TouchableOpacity>
         </View>
