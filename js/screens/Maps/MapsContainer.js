@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
-import styles from "./styles";
+import Maps from "./Maps";
 
 export default class MapContainer extends Component {
   static navigationOptions = {
@@ -12,10 +11,6 @@ export default class MapContainer extends Component {
     }
   };
   render() {
-    return (
-      <View style={styles.container}>
-        <Text styles={styles.placeholder}>There is no map available</Text>
-      </View>
-    );
+    return <Maps />;
   }
 }

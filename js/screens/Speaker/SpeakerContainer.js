@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import PropTypes from "prop-types";
 import Speaker from "./Speaker";
 
 export default class SessionsContainer extends Component {
@@ -17,3 +17,7 @@ export default class SessionsContainer extends Component {
     );
   }
 }
+
+SessionsContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};

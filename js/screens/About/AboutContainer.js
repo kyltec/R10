@@ -13,6 +13,7 @@ export default class AboutContainer extends Component {
       color: "#fff"
     }
   };
+
   render() {
     return (
       <Query
@@ -33,7 +34,6 @@ export default class AboutContainer extends Component {
           }
           if (error) {
             <Text>{`${error.message}`}</Text>;
-            console.log(error);
           }
           return <About data={data} />;
         }}

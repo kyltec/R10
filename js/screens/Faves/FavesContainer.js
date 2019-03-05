@@ -7,10 +7,6 @@ import { formatSessionData } from "../../lib/helper/dataFormatHelpers";
 import FavesContext from "../../context/";
 
 export default class FavesContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   static navigationOptions = {
     title: "Faves",
     headerTintColor: "#fff",

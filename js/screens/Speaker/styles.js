@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     color: "#fff",
     height: Dimensions.get("window").height,
-    paddingTop: 30,
+    paddingTop: 0,
     padding: 20,
     flex: 1
   },

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -12,69 +12,64 @@ import PropTypes from "prop-types";
 
 import styles from "./styles";
 
-export default class Schedule extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <View>
-        <SectionList
-          sections={this.props.data}
-          renderItem={({ item }) => {
-            return (
-              <View>
-                <TouchableOpacity
-                  onPress={() => {
-                    if (!item.speaker) {
-                      this.props.navigation.navigate("", {});
-                    } else {
-                      this.props.navigation.navigate("Sessions", {
-                        id: item.id,
-                        item: item
-                      });
-                    }
-                  }}
-                >
-                  <View style={styles.itemContainer}>
-                    <View>
-                      <Text style={styles.title}>{item.title}</Text>
-                      <Text style={styles.location}>{item.location}</Text>
-                    </View>
-                    <View style={styles.heart}>
-                      {this.props.faveIds.includes(item.id) ? (
-                        <Icon
-                          name={Platform.select({
-                            ios: "ios-heart",
-                            android: "md-heart"
-                          })}
-                          color="red"
-                          size={16}
-                        />
-                      ) : (
-                        <Text />
-                      )}
-                    </View>
+const Schedule = ({ data, navigation, faveIds }) => {
+  return (
+    <View>
+      <SectionList
+        sections={data}
+        renderItem={({ item }) => {
+          return (
+            <View>
+              <TouchableOpacity
+                onPress={() => {
+                  if (!item.speaker) {
+                    navigation.navigate("", {});
+                  } else {
+                    navigation.navigate("Sessions", {
+                      id: item.id,
+                      item: item
+                    });
+                  }
+                }}
+              >
+                <View style={styles.itemContainer}>
+                  <View>
+                    <Text style={styles.title}>{item.title}</Text>
+                    <Text style={styles.location}>{item.location}</Text>
                   </View>
-                </TouchableOpacity>
-                <View style={styles.bottomBorder} />
-              </View>
-            );
-          }}
-          renderSectionHeader={({ section: { title } }) => (
-            <Text style={styles.timeStamp}>{moment(title).format("LT")}</Text>
-          )}
-          keyExtractor={item => item.id + ""}
-        />
-      </View>
-    );
-  }
-}
+                  <View style={styles.heart}>
+                    {faveIds.includes(item.id) ? (
+                      <Icon
+                        name={Platform.select({
+                          ios: "ios-heart",
+                          android: "md-heart"
+                        })}
+                        color="red"
+                        size={16}
+                      />
+                    ) : (
+                      <Text />
+                    )}
+                  </View>
+                </View>
+              </TouchableOpacity>
+              <View style={styles.bottomBorder} />
+            </View>
+          );
+        }}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text style={styles.timeStamp}>{moment(title).format("LT")}</Text>
+        )}
+        keyExtractor={item => item.id + ""}
+      />
+    </View>
+  );
+};
 
 Schedule.propTypes = {
   data: PropTypes.array.isRequired,
   navigation: PropTypes.object.isRequired,
   faveIds: PropTypes.arrayOf(PropTypes.string).isRequired
 };
+
+export default Schedule;

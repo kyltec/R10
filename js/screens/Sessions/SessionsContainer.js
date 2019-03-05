@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { ActivityIndicator, Text } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 import gql from "graphql-tag";
 import Sessions from "./Sessions";
 import FavesContainer from "../../context/";
@@ -37,7 +37,17 @@ export default class SessionsContainer extends Component {
       >
         {({ loading, error, data }) => {
           if (loading) {
-            return <ActivityIndicator />;
+            return (
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                <ActivityIndicator size="large" />
+              </View>
+            );
           }
           if (error) {
             return <Text>Error</Text>;
