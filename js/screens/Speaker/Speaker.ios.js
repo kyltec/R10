@@ -13,6 +13,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
+import PropTypes from "prop-types";
 
 export default class Speaker extends Component {
   constructor(props) {
@@ -63,3 +64,11 @@ export default class Speaker extends Component {
     );
   }
 }
+
+Speaker.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  bio: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
+};

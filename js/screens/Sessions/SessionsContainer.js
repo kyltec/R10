@@ -47,7 +47,7 @@ export default class SessionsContainer extends Component {
               {({ faveIds, setFaveId, deleteFaveId }) => {
                 return (
                   <Sessions
-                    data={data.allSpeakers[0]}
+                    data={data.allSpeakers}
                     itemId={itemId}
                     item={item}
                     navigation={this.props.navigation}

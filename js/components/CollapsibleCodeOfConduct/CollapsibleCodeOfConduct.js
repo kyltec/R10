@@ -8,6 +8,7 @@ import {
   Platform,
   UIManager
 } from "react-native";
+import PropTypes from "prop-types";
 
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -40,7 +41,6 @@ class CollapsibleCodeOfConduct extends Component {
 
   render() {
     const { styles, item } = this.props;
-    const animateIcom = Animated.createAnimatedComponent(Icon);
     const rotateIcon = this.state.rotateValue.interpolate({
       inputRange: ["0", "1"],
       outputRange: ["0deg", "360deg"]
@@ -97,5 +97,10 @@ class CollapsibleCodeOfConduct extends Component {
     );
   }
 }
+
+CollapsibleCodeOfConduct.propTypes = {
+  styles: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired
+};
 
 export default CollapsibleCodeOfConduct;

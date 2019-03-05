@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     fontFamily: Font.main,
     fontWeight: "bold",
     color: "#9963ea",
-    paddingLeft: 20
+    paddingLeft: 10
   },
   licence: {
     marginTop: 30,

@@ -1,5 +1,4 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import About from "../screens/About";
 import NavigationLayout from "./NavigationLayout";
 import SpeakerModel from "../screens/Speaker";
 
@@ -15,11 +14,3 @@ export default createAppContainer(
     }
   )
 );
-
-// const AppNavigator = createStackNavigator({
-//   About: {
-//     screen: About
-//   }
-// });
-
-// export default createAppContainer(AppNavigator)

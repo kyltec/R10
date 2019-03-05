@@ -11,6 +11,7 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 import moment from "moment";
 import LinearGradient from "react-native-linear-gradient";
+import PropTypes from "prop-types";
 
 import styles from "./styles";
 import { Colours } from "../../config/styles";
@@ -119,3 +120,13 @@ export default class Sessions extends Component {
     );
   }
 }
+
+Sessions.propTypes = {
+  data: PropTypes.array.isRequired,
+  item: PropTypes.object.isRequired,
+  itemId: PropTypes.string.isRequired,
+  navigation: PropTypes.object.isRequired,
+  setFaveId: PropTypes.func.isRequired,
+  faveIds: PropTypes.array.isRequired,
+  deleteFaveId: PropTypes.func.isRequired
+};

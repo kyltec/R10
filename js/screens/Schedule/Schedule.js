@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
+import PropTypes from "prop-types";
 
 import styles from "./styles";
 
@@ -71,3 +72,9 @@ export default class Schedule extends Component {
     );
   }
 }
+
+Schedule.propTypes = {
+  data: PropTypes.array.isRequired,
+  navigation: PropTypes.object.isRequired,
+  faveIds: PropTypes.arrayOf(PropTypes.string).isRequired
+};
