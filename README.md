@@ -1,6 +1,6 @@
 # R10
 
-R10 is a cross platform (iOS/Android) schedule app. Some features of the app include favouriting sessions, viewing more about speakers on wikipedia and viewing the location on google maps.
+R10 is a cross-platform (iOS/Android) mobile app created for a conference coming up. Some features of the app include a schedule, sessions, favouriting sessions, and a small bio of the speakers. A future consideration is adding the location of the conference on google maps.
 
 ## Screenshots
 
@@ -35,7 +35,7 @@ react-native run-android
 - React Native
 - GraphQL
 - Moment
-- Xcode for
+- Xcode
 - Android Studio
 
 ## Author
