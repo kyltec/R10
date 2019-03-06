@@ -66,4 +66,4 @@ react-native run-android
 
 ## Author
 
-Kyle Tecson
+[Kyle Tecson](https://www.linkedin.com/in/kyle-tecson-9b6952175/)
