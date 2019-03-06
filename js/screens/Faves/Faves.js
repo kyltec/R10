@@ -12,7 +12,6 @@ import PropTypes from "prop-types";
 import styles from "./styles";
 
 const Faves = ({ sessions = [], navigation }) => {
-  console.log(sessions.faveIds);
   return (
     <View>
       {sessions.length <= 0 ? (

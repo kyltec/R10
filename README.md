@@ -1,6 +1,6 @@
 # R10
 
-R10 is a schedule app where you can favorite session you would like to see along with viewing its location on google maps.
+R10 is a cross platform (iOS/Android) schedule app. Some features of the app include favouriting sessions, viewing more about speakers on wikipedia and viewing the location on google maps.
 
 ## Screenshots
 
