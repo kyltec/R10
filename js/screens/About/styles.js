@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
   },
   dropdown: {
     marginLeft: 10,
-    marginRight: 10
+    marginRight: 10,
+    marginBottom: 30
   },
   menuItem: {
     marginTop: 10,

@@ -17,15 +17,41 @@ Have an iPnone and/or an Android Simulator (ie. Xcode, Android Studio) installed
 
 #### iOS
 
+Install dependancies
+
 ```bash
+  yarn install
+```
+
+or
+
+```
+  npm install
+```
+
+Run
+
+```
   react-native run-ios
 ```
 
 #### Android
 
-- open android simulator
+Install dependancies
 
 ```bash
+yarn install
+```
+
+or
+
+```
+npm install
+```
+
+Run
+
+```
 react-native run-android
 ```
 
